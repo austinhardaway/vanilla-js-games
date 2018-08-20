@@ -1,4 +1,4 @@
-const colors = ["green", "yellow", "red"];
+const colors = ["placeholder", "red", "yellow", "green"];
 
 export default class Brick {
   constructor(canvas, ctx, x, y, h = 20, w = 50) {

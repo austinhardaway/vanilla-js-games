@@ -1,6 +1,5 @@
 import Ball from "./src/Ball.js";
 import Paddle from "./src/Paddle.js";
-import Brick from "./src/Brick.js";
 import Field from "./src/Field.js";
 ("use strict");
 
@@ -21,6 +20,7 @@ function draw() {
   paddle.update(rightPressed, leftPressed);
   ball.bounce(paddle, bricks);
   ball.update();
+  if (bricks.bricks.filter(b => b.health > 0).length == 0) alert("WIN");
   window.requestAnimationFrame(draw);
 }
 
