@@ -15,6 +15,7 @@ export default class Field {
       (this.canvas.width - (this.w * this.col + this.hGutter * this.col)) / 2;
     this.rowOffset = 25;
     this.bricks = [];
+    this.points = 0;
 
     for (let i = 0; i < col; i++) {
       for (let j = 0; j < row; j++) {
@@ -36,6 +37,9 @@ export default class Field {
     this.bricks.filter(b => b.health > 0).forEach(b => {
       b.draw();
     });
+    this.ctx.fillStyle = "black";
+    this.ctx.font = "30px Arial";
+    this.ctx.fillText(this.points, this.canvas.width - 30, 30);
   }
 
   handleCollision(ball) {
@@ -43,6 +47,7 @@ export default class Field {
       if (b.hits(ball.pos)) {
         ball.vel.y *= -1;
         b.health -= 1;
+        this.points++;
       }
     });
   }

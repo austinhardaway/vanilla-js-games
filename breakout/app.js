@@ -20,6 +20,7 @@ function draw() {
   paddle.update(rightPressed, leftPressed);
   ball.bounce(paddle, bricks);
   ball.update();
+
   if (bricks.bricks.filter(b => b.health > 0).length == 0) alert("WIN");
   window.requestAnimationFrame(draw);
 }
